@@ -90,6 +90,9 @@ class Analog {
 	public:
 	Analog();
 	inline static void init(){
+	ADCSRA = 0;
+	ADMUX = 0;
+	ADCSRB = 0;
 	ADCSRA |= (1 << ADPS2) | (1 << ADPS1); // prescalar = 64
 	ADMUX |= (1 << REFS0); // reference voltage from internal source
 	ADCSRA |= (1 << ADEN); // enable ADC
